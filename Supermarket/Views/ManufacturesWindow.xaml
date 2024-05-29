@@ -1,0 +1,29 @@
+﻿<Window x:Class="Supermarket.Views.ManufacturesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Supermarket.Views"
+        xmlns:vm="clr-namespace:Supermarket.ViewModel"
+        mc:Ignorable="d"
+        Title="ManufacturesWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button Content="Add Manufacturer" Command="{Binding OpenAddManufacturerCommand}" Width="150" Margin="5"/>
+            <Button Content="Save Changes" Command="{Binding SaveChangesCommand}" Width="150" Margin="5"/>
+            <Button Content="Refresh" Command="{Binding RefreshCommand}" Width="100" Margin="5"/>
+            <Button Content="Show Products" Command="{Binding ShowProductsCommand}" Width="150" Margin="5"/>
+        </StackPanel>
+        <DataGrid ItemsSource="{Binding Manufacturers}" AutoGenerateColumns="False" Grid.Row="1" Margin="10"
+                  SelectedItem="{Binding SelectedManufacturer}" IsReadOnly="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Manufacturer Name" Binding="{Binding NumeProducator, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Country of Origin" Binding="{Binding TaraOrigine, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,49 @@
+﻿<Window x:Class="Supermarket.Views.CasierWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Supermarket.Views"
+        xmlns:vm="clr-namespace:Supermarket.ViewModel"
+        mc:Ignorable="d"
+        Title="CasierWindow" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBox Width="200" Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
+            <Button Content="Cauta dupa Nume" Command="{Binding SearchByNameCommand}" Width="150" Margin="5"/>
+            <Button Content="Cauta dupa Cod De Bare" Command="{Binding SearchByBarcodeCommand}" Width="150" Margin="5"/>
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding Stocks}" AutoGenerateColumns="False" Margin="10" Grid.Row="1" SelectedItem="{Binding SelectedStock}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nume Produs" Binding="{Binding ProductName}"/>
+                <DataGridTextColumn Header="Cod De Bare" Binding="{Binding CodDeBare}"/>
+                <DataGridTextColumn Header="Cantitate" Binding="{Binding Cantitate}"/>
+                <DataGridTextColumn Header="Unitate De Masura" Binding="{Binding UnitateDeMasura}"/>
+                <DataGridTextColumn Header="Pret Vanzare" Binding="{Binding PretVanzare}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Adauga la Bon" Command="{Binding AddToBonCommand}" Width="120" Margin="10"/>
+            <Button Content="Anuleaza" Command="{Binding CancelBonCommand}" Width="120" Margin="10"/>
+            <Button Content="Emite Bon" Command="{Binding EmitBonCommand}" Width="120" Margin="10"/>
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding BonProducts}" AutoGenerateColumns="False" Margin="10" Grid.Row="3">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nume Produs" Binding="{Binding NumeProdus}"/>
+                <DataGridTextColumn Header="Cantitate" Binding="{Binding Cantitate}"/>
+                <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
