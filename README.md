@@ -18,27 +18,6 @@ The Supermarket Management System is a comprehensive desktop application develop
 - **WPF (Windows Presentation Foundation):** The framework used for creating the desktop application's user interface.
 - **MySQL:** The database system used for storing and managing application data.
 
-## Installation and Setup
-
-1. **Clone the Repository:** Start by cloning the project to your local machine.
-
-    ```bash
-    git clone https://github.com/username/supermarket-management-system.git
-    cd supermarket-management-system
-    ```
-
-2. **Set Up MySQL Database:**
-   - Ensure you have MySQL installed and running.
-   - Import the provided SQL schema to create the necessary tables and initial data.
-   - Update the connection string in the application to match your MySQL server configuration.
-
-3. **Build the Application:**
-   - Open the project in Visual Studio.
-   - Restore NuGet packages if required.
-   - Build the solution to compile the application.
-
-4. **Run the Application:**
-   - Execute the application from Visual Studio or the compiled executable file.
 
 ## Learning Outcomes
 
